@@ -41,7 +41,7 @@ module RubyErd
         end
       end
 
-      @result.output(png: @options.filename || 'a.png')
+      @result.output(png: @options.output || 'a.png')
     end
 
     private

@@ -1,9 +1,8 @@
 #This is still a WIP
 
 # TODO
-1. get CLI working
-2. get example simple project added to specs
-3. get example rails project added to specs
+1. get example simple project added to specs
+2. get example rails project added to specs
 
 # RubyErd
 
@@ -35,7 +34,28 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+To generate the example from above you can run the following.
+
+```
+bin/ruby-erd -o test.png -d spec -c spec/examples/class_02.rb -k Test
+```
+
+
+```
+Usage:  [options] command
+
+Common options:
+    -i, --include file1[,fileN]      Include only given files
+    -e, --exclude file1[,fileN]      Exclude given files
+    -k, --klasses class1[,classN]    Names of classes to build a diagram for
+    -v, --verbose                    Enable verbose output
+                                       (produce messages to STDOUT)
+    -o, --output FILE                Write diagram to file FILE
+    -d, --dir PATH                   Set PATH as the directory project is in (defaults to app)
+    -r, --root PATH                  Set PATH as the application root
+
+    -c, --config FILE                File to load environment (defaults to config/environment)
+```
 
 ## Development
 

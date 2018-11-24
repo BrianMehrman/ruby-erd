@@ -31,6 +31,10 @@ class OptionsStruct < OpenStruct
         self.exclude = list
       end
 
+      opts.on('-k', '--klasses class1[,classN]', Array, 'Names of classes to build a diagram for') do |list|
+        self.klasses = list
+      end
+
       opts.on('-v', '--verbose', 'Enable verbose output',
         '  (produce messages to STDOUT)') do |v|
         self.verbose = v
