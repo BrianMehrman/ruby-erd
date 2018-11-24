@@ -15,6 +15,8 @@ The end goal of this gem is to provide more utility to the RailRoady gem to crea
 an ERD that not only provides the ActiveRecord associations but also any modules
 and class that are deeply nested.
 
+![Example](docs/test.png)
+
 ## Installation
 
 Add this line to your application's Gemfile:
