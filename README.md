@@ -9,7 +9,7 @@
 
 RubyErd is a gem meant to walk the classes and modules in your projects creating a GraphViz diagram.
 The RubyErd gem can be used with a single ruby file or a ruby project like rails.
-This project was heavily influences by [RailRoady](https://github.com/preston/railroady).
+This project was heavily influenced by [RailRoady](https://github.com/preston/railroady).
 
 The end goal of this gem is to provide more utility to the RailRoady gem to create
 an ERD that not only provides the ActiveRecord associations but also any modules
