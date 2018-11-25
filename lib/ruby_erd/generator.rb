@@ -31,17 +31,7 @@ module RubyErd
     end
 
     def print
-      @result = GraphViz.new(:G, type: :digraph) do |g|
-        @nodes.each do |node|
-          g.add_node(node[1])
-        end
-
-        @edges.each do |edge|
-          g.add_edge(edge[1], edge[2])
-        end
-      end
-
-      @result.output(png: @options.output || 'a.png')
+      Printer.print(@nodes, @edges, @options.output)
     end
 
     private

@@ -19,7 +19,7 @@ RSpec.describe RubyErd do
         config_file: 'spec/examples/class_02.rb',
         project_dir: 'spec',
         klasses: ['Test'],
-        filename: 'test.png'
+        output: 'test.png'
       })
     end
 
