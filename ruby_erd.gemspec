@@ -28,7 +28,7 @@ Gem::Specification.new do |spec|
     f.match(%r{^(test|spec|features)/})
   end
 
-  spec.executables   = ["ruby-erd", "console"]
+  spec.executables   = ["ruby-erd"]
   spec.require_paths = ["lib"]
 
   spec.add_dependency 'ruby-graphviz'
