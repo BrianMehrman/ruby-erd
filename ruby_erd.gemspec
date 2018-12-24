@@ -4,8 +4,9 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "ruby_erd/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "ruby_erd"
+  spec.name          = "ruby-erd"
   spec.version       = RubyErd::VERSION
+  spec.platform      = Gem::Platform::RUBY
   spec.authors       = ["brianmehrman"]
   spec.email         = ["brian.mehrman@centro.net"]
 
@@ -27,7 +28,7 @@ Gem::Specification.new do |spec|
     f.match(%r{^(test|spec|features)/})
   end
 
-  spec.executables   = ["ruby_erd"]
+  spec.executables   = ["ruby-erd", "console"]
   spec.require_paths = ["lib"]
 
   spec.add_dependency 'ruby-graphviz'
