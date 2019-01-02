@@ -1,0 +1,2 @@
+class MountainWheel < Wheel
+end

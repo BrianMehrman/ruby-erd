@@ -1,8 +1,10 @@
 #This is still a WIP
 
 # TODO
-1. get example simple project added to specs
-2. get example rails project added to specs
+- [x] get example simple code added to specs
+- [ ] get example simple project added to specs
+- [ ] get example rails project added to specs
+- [ ] add ability to collect all classes in project
 
 # RubyErd
 
