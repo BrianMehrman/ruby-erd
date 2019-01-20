@@ -4,6 +4,10 @@ module RubyErd
 
     attr_reader :klass, :options
 
+    def self.extract(filename)
+
+    end
+
     def initialize(klass, options)
       @klass = klass
       @options = options
@@ -13,7 +17,7 @@ module RubyErd
 
     def walk
       puts "class: #{klass.name}" if @options.verbose
-      @nodes << ['class', klass.name]
+      @nodes << ['class', klass.name] if klass.name
       walk_parent
       walk_modules
       return @nodes, @edges
@@ -28,7 +32,7 @@ module RubyErd
           @nodes += nodes if !nodes.nil?
           @edges += edges if !edges.nil?
 
-          @edges << ['includes', m.name, klass.name]
+          @edges << ['includes', m.name, klass.name] if m.name && klass.name
         # end
       end
     end
@@ -41,7 +45,7 @@ module RubyErd
 
         @nodes += nodes if !nodes.nil?
         @edges += edges if !edges.nil?
-        @edges << ['is-a', klass.superclass.name, klass.name]
+        @edges << ['is-a', klass.superclass.name, klass.name] if klass.name && klass.superclass.name
       end
     end
 

@@ -17,8 +17,7 @@ module RubyErd
     def generate
       STDERR.puts 'Generating class diagram' if @options.verbose
       _klasses = klasses
-      _klasses ||= get_klasses(@options.project_dir)
-
+      _klasses = get_klasses if _klasses.empty?
       (_klasses).each do |klass_name|
         begin
           klass_name
@@ -74,24 +73,22 @@ module RubyErd
                    "#{@options.app_name} on the application's root directory?)\n\n"
     end
 
-    def get_klasses(prefix)
-      get_files(prefix).map do |f|
+    def get_klasses
+      get_files(@options.project_dir).map do |f|
         extract_class_name(f)
-      end
+      end.flatten
     end
 
     def get_files(prefix = '')
-      files = !@options.include.empty? ? Dir.glob(@options.included) : Dir.glob("#{prefix}/**.rb")
+      files = !@options.include.empty? ? Dir.glob(@options.included) : Dir.glob("#{prefix}/**/*.rb")
       files -= Dir.glob(@options.exclude)
       files
     end
 
     # Extract class name from filename
     def extract_class_name(filename)
-      # filename.split('/')[2..-1].join('/').split('.').first.camelize
-      # Fixed by patch from ticket #12742
-      # File.basename(filename).chomp(".rb").camelize
-      filename.split('/')[2..-1].collect(&:camelize).join('::').chomp('.rb')
+      nodes = ConstantExtractor.process(filename)
+      nodes ? nodes.flat_map(&:children) : []
     end
 
      # Prevents Rails application from writing to STDOUT

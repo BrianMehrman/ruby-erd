@@ -33,7 +33,7 @@ module RubyErd
       when 'module'
         options.merge!(shape: 'box', style: 'dotted')
       end
-# binding.pry
+
       g.add_node(name, **options)
     end
 

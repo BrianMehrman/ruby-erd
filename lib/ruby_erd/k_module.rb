@@ -14,11 +14,11 @@ module RubyErd
     def walk
       puts "Processing module: #{klass.name}" if @options.verbose
 
-      @nodes << ['module', kmodule.name]
+      @nodes << ['module', kmodule.name] if kmodule.name
 
       _modules.each do |m|
-        @nodes << ['module', m.name]
-        @edges << ['includes', m.name, kmodule.name]
+        @nodes << ['module', m.name] if m.name
+        @edges << ['includes', m.name, kmodule.name] if m.name && kmodule.name
       end
 
       return @nodes, @edges
